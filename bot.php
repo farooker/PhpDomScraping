@@ -1,4 +1,10 @@
 <?php
+      // you want to allow, and if so:
+        header('Access-Control-Allow-Origin: *');
+
+        header('Access-Control-Allow-Methods: GET, POST');
+        
+        header("Access-Control-Allow-Headers: X-Requested-With");
     error_reporting(E_ALL);
     date_default_timezone_set('Asia/Bangkok');
     $date =  date("Y-m-d H:i:s");
@@ -49,6 +55,20 @@
 
 
 
+    /*
+    Top
+    
+   $base = 'https://www.tops.co.th/th/australian-chilled-grass-fed-minced-beef-250g-b-0000048206730';
+
+    $html = file_get_html($base);
+    $script = $html->find('script[type="application/ld+json"]',0);
+    $json = json_decode($script->innertext, true);
+
+    print_r($json); 
+
+    */
+
+
 /*
 $_htmlDom = new simple_html_dom();
 $_htmlDom->load('https://www.bigc.co.th/filippo-berio-berio-balsamic-vinegar-250-ml.html');
@@ -65,13 +85,27 @@ echo $_htmlDom;
     echo  $tops;
     */
 
-    $base = 'https://www.tops.co.th/th/tops-minced-beef-10percent-fat-200g-8853474030811';
+    
+    /*
+    $output = 'https://www.bigc.co.th/moccona-trio-drink-espresso-486-g.html';
+    $curl_handle=curl_init();
+    curl_setopt($curl_handle, CURLOPT_URL,$url);
+    curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 20);
+    curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl_handle, CURLOPT_USERAGENT, 'psu_project');
+    $output = curl_exec($curl_handle);
+    curl_close($curl_handle);
 
-    $html = file_get_html($base );
-    foreach($html->find('script') as $e)
-    {
+    $_htmlDom = new simple_html_dom();
+    $_htmlDom->load($output);
+    $bigC = '';
+    $bigC = get_numerics($_htmlDom->find('p.old-price', 0)->plaintext);
+    echo $bigC ;
+    */
+           
+   // $script = $html->find('script[type="application/ld+json"]',0);
+    //$json = json_decode($script->innertext, true);
 
-        echo '<p>price </p>' .$e->outertext . '<br>';
-    }
-    echo $scripts ;
+
+
 ?>
