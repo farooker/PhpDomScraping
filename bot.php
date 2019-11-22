@@ -106,6 +106,34 @@ echo $_htmlDom;
    // $script = $html->find('script[type="application/ld+json"]',0);
     //$json = json_decode($script->innertext, true);
 
+    /*
+  lazada
+
+
+    $base = 'view-source:https://www.lazada.co.th/products/adda-13b01-i398116284-s773406797.html?spm=a2o4m.pdp.recommendation_2.3.3ca567e9XZae0w&mp=1&scm=1007.16389.126158.0&clickTrackInfo=96c74b41-f8b2-4984-a684-54a72c2f1ab0__398116284__6452__trigger2i__124582__0.695__0.68358105__0.0__0.4666209__0.10166001__0.69374704__2__1__PDPV2V__244__null__null__0__';
+
+    $html = file_get_html($base);
+  $script = $html->find('script[type="application/ld+json"]',0);
+  $json = json_decode($script->innertext, true);
+  print_r($json); 
+  */
+// shoppee
+  $base = 'https://shopee.co.th/-%E0%B9%82%E0%B8%84%E0%B9%89%E0%B8%94-INSTALL3-%E0%B8%84%E0%B8%B7%E0%B8%997-HP-15-db1002AU-R5-3500-Win10-%E0%B9%81%E0%B8%A5%E0%B9%87%E0%B8%9B%E0%B8%97%E0%B9%87%E0%B8%AD%E0%B8%9B-i.25344508.2198110288';
+
+    $html = file_get_html($base);
+ // $script = $html->find('script[type="application/ld+json"]',0);
+ // $json = json_decode($script->innertext, true);
+  // echo json_encode($json)
+  //print_r(json_encode($json)); 
+
+  
+  foreach($html->find('div._3n5NQx') as $e)
+  {
+
+      echo '<p>price </p>' .$e->outertext . '<br>';
+  }
+
+ //echo($html); 
 
 
 ?>
